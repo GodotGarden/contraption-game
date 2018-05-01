@@ -11,6 +11,6 @@ func drop_data(drop_position, scene_instance):
 	var workspace =get_node("/root/Game/Workspace")
 	var game_node = get_node("/root/Game")
 	
-	scene_instance.position = workspace.rect_position + drop_position
+	scene_instance.position = drop_position
 	
-	game_node.add_child(scene_instance)
+	workspace.add_child(scene_instance)
