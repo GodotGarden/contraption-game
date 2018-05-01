@@ -1,11 +1,13 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Workspace.gd" type="Script" id=1]
-[ext_resource path="res://images/green_ball-64px.png" type="Texture" id=2]
-[ext_resource path="res://Green_Ball_Button.gd" type="Script" id=3]
+[ext_resource path="res://Game.gd" type="Script" id=1]
+[ext_resource path="res://Workspace.gd" type="Script" id=2]
+[ext_resource path="res://images/green_ball-64px.png" type="Texture" id=3]
+[ext_resource path="res://Green_Ball_Button.gd" type="Script" id=4]
 
 [node name="Game" type="Node" index="0"]
 
+script = ExtResource( 1 )
 __meta__ = {
 "_edit_horizontal_guides_": [ -0.130142 ]
 }
@@ -26,11 +28,12 @@ mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 1
 color = Color( 1, 1, 1, 1 )
-script = ExtResource( 1 )
+script = ExtResource( 2 )
 _sections_unfolded = [ "Rect" ]
 
 [node name="Start_Button" type="Button" parent="." index="1"]
 
+pause_mode = 2
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -53,6 +56,7 @@ group = null
 text = "Start"
 flat = false
 align = 1
+_sections_unfolded = [ "Pause" ]
 
 [node name="Green_Ball_Button" type="TextureButton" parent="." index="2"]
 
@@ -75,10 +79,12 @@ toggle_mode = false
 enabled_focus_mode = 2
 shortcut = null
 group = null
-texture_normal = ExtResource( 2 )
-script = ExtResource( 3 )
+texture_normal = ExtResource( 3 )
+script = ExtResource( 4 )
 _sections_unfolded = [ "Textures" ]
 
 [connection signal="mouse_entered" from="Workspace" to="Workspace" method="_on_Workspace_mouse_entered"]
+
+[connection signal="pressed" from="Start_Button" to="." method="_on_Start_Button_pressed"]
 
 
