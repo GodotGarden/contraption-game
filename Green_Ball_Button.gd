@@ -15,7 +15,8 @@ func get_drag_data(position):
 	# Set drag preview with ball texture button
 	set_drag_preview(texture_button)
 	
-	return self
+	# Create Ball scene instance
+	var ball_scene = load("res://Ball.tscn")
+	var ball_scene_instance = ball_scene.instance()
 	
-func can_drop_data(position, data):
-	return true
+	return ball_scene_instance

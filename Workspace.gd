@@ -4,13 +4,13 @@ func _ready():
 	pass
 
 func can_drop_data(position, data):
-	print('inside can drop data')
 	return true
 	
-func drop_data(position, data, from_control):
-	print(position)
-	print(from_control)
+func drop_data(drop_position, scene_instance):
 
-func _on_Workspace_mouse_entered():
-	print('mouse entered')
-	pass # replace with function body
+	var workspace =get_node("/root/Game/Workspace")
+	var game_node = get_node("/root/Game")
+	
+	scene_instance.position = workspace.rect_position + drop_position
+	
+	game_node.add_child(scene_instance)

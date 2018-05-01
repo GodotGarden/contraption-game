@@ -7,7 +7,7 @@
 custom_solver_bias = 0.0
 radius = 23.6945
 
-[node name="Ball" type="RigidBody2D"]
+[node name="Ball" type="RigidBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 1
@@ -30,10 +30,14 @@ angular_damp = -1.0
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+position = Vector2( 32, 32 )
 texture = ExtResource( 1 )
+_sections_unfolded = [ "Offset", "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
+position = Vector2( 32, 32 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 
 
